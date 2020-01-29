@@ -220,7 +220,7 @@ class VRP_relaxed(mip.Problem):
 
 
 # +
-N = 5 # Number of stops (excluding depot)
+N = 20 # Number of stops (excluding depot)
 K = 5 # Max number of vehicles
 C = 5 # Max vehicle capacity
 q = np.random.rand(N)
@@ -228,7 +228,7 @@ np.random.seed(2)
 locations = np.random.randn(N+1, 2)
 D = squareform(pdist(locations)) # Distance matrix
 
-prob = VRP_relaxed("VRP")
+prob = VRP("VRP")
 prob.model(D, K, C, q)
 # %time prob.optimize(silent=False, timeLimit=60*5, gap=0.0)
 # -
